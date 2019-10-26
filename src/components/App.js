@@ -1,31 +1,36 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { updateInput } from '../AC/input';
 import Button from './Button';
+import { phoneButtons } from '../const/phoneButtons';
 
-class App extends React.Component {
-  renderButtons = () => {
-    const phoneButtons = [
-      [1],
-      [2, 'abc'],
-      [3, 'def'],
-      [4, 'ghi'],
-      [5, 'jkl'],
-      [6, 'mno'],
-      [7, 'pqrs'],
-      [8, 'tuv'],
-      [9, 'wxyz'],
-      '*',
-      0,
-      '#'
-    ];
-
+const App = props => {
+  const renderButtons = () => {
     return phoneButtons.map(button => (
-      <Button title={button[0]} subtitle={button[1]} />
+      <Button
+        key={button.value}
+        disabled={button.disabled}
+        title={button.title}
+        subtitle={button.subtitle}
+        updateInput={props.updateInput}
+        value={button.value}
+      />
     ));
   };
 
-  render() {
-    return <div>{this.renderButtons()}</div>;
-  }
-}
+  return (
+    <div>
+      <form>
+        <input type="text" value={props.input} />
+        <input type="submit" value="Find words!" />
+      </form>
+      <div>Output</div>
+      <div>{renderButtons()}</div>
+    </div>
+  );
+};
 
-export default App;
+export default connect(
+  ({ input }) => ({ input }),
+  { updateInput }
+)(App);
