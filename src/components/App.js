@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateInput } from '../AC/input';
+import { clearInput, updateInput } from '../AC/input';
+import { convertInput } from '../AC/conversion';
 import Button from './Button';
 import { phoneButtons } from '../const/phoneButtons';
 
@@ -23,6 +24,7 @@ const App = props => {
       <form>
         <input type="text" value={props.input} />
         <input type="submit" value="Find words!" />
+        <button onClick={props.clearInput}>Clear</button>
       </form>
       <div>Output</div>
       <div>{renderButtons()}</div>
@@ -32,5 +34,5 @@ const App = props => {
 
 export default connect(
   ({ input }) => ({ input }),
-  { updateInput }
+  { convertInput, clearInput, updateInput }
 )(App);
