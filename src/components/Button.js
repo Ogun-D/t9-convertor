@@ -8,9 +8,9 @@ const Button = props => {
   };
 
   return (
-    <div onClick={handleClick}>
-      <div>{title}</div>
-      <div>{subtitle}</div>
+    <div className="dial-button" onClick={handleClick}>
+      <div className="dial-button-title">{title}</div>
+      <div className="dial-button-subtitle">{subtitle}</div>
     </div>
   );
 };

@@ -1,4 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito|Tajawal&display=swap');
+
 body {
+  display: flex;
   margin: 20px;
+  align-items: center;
   justify-content: center;
+}
+
+.container {
+  display: flex;
+  margin-bottom: 14px;
+}
+
+.container-app {
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 350px;
+}
+
+.container-phone {
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 25px;
+  background-color: rgba(53, 51, 94, 0.9);
+  border-radius: 4px;
+}
+
+.container-buttons {
+  justify-content: space-between;
+}
+
+.input {
+  font-family: 'Tajawal';
+  font-size: 14px;
+  width: auto;
+  height: 35px;
+  padding-top: 5px;
+  margin-bottom: 14px;
+  border: 1px solid #e9eef2;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.output {
+  font-family: 'Tajawal';
+  padding: 14px;
+  margin-bottom: 14px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 26px;
+  color: #57626c;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.14);
+}
+
+.dial-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90px;
+  height: 50px;
+  margin: 5px 0;
+  text-align: center;
+  color: #fff;
+  background-color: #ec2942;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  font-family: 'Nunito';
+}
+
+.dial-button:active {
+  box-shadow: inset 2px 2px #fff;
+}
+
+.dial-button-subtitle {
+  margin-top: -5px;
+  font-size: 12px;
+}
+
+.control-button {
+  min-width: 100px;
+  padding: 10px;
+  border: none;
+  color: #35335e;
+  background-color: rgba(236, 41, 66, 0.3);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
 }

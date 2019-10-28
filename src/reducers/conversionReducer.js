@@ -5,8 +5,7 @@ import {
   CONVERT_RESET
 } from '../const/redux';
 
-const defaultConversion =
-  'Please enter a number (corresponding to a word) and press convert';
+const defaultConversion = 'Please enter a number and press convert';
 
 export default (conversion = defaultConversion, action) => {
   const { type, payload } = action;

@@ -40,14 +40,18 @@ const App = props => {
   };
 
   return (
-    <div>
-      <form>
-        <input type="text" value={input} />
-        <button onClick={handleClearInput}>Clear</button>
-        <button onClick={handleConvertInput}>Convert</button>
-      </form>
-      <div>{conversion}</div>
-      <div>{renderButtons()}</div>
+    <div className="container container-app">
+      <input className="input" type="text" value={input} />
+      <div className="container container-buttons">
+        <button className="control-button" onClick={handleClearInput}>
+          Clear
+        </button>
+        <button className="control-button" onClick={handleConvertInput}>
+          Convert
+        </button>
+      </div>
+      <div className="container container-phone">{renderButtons()}</div>
+      <div className="output">{conversion}</div>
     </div>
   );
 };
