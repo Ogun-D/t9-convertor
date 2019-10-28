@@ -1,4 +1,4 @@
-export const phoneButtons = [
+export const PHONE_BUTTONS = [
   {
     disabled: true,
     subtitle: '',

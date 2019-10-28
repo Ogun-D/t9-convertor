@@ -1,5 +1,4 @@
-import { UPDATE_INPUT } from '../const/redux';
-import { CLEAR_INPUT } from '../const/redux';
+import { CLEAR_INPUT, UPDATE_INPUT } from '../const/redux';
 
 export const clearInput = () => {
   return {

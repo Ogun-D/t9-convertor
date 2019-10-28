@@ -14,10 +14,20 @@ const valueConversions = {
 const text = fs
   .readFileSync('./words.txt', 'utf-8')
   .toString()
-  .split('\n');
+  .split('\n')
+  .map(word => word.toLowerCase());
 
-const crossProduct = (a, b) =>
-  b.reduce((arr, b) => arr.concat(a.map(a => a + b)), []);
+const letterCombinations = digs => {
+  const letters = digs.map(digit => valueConversions[digit] || ['']);
+
+  return letters.reduce((strings, currentEntry) => {
+    const combinations = [];
+    strings.reduce((_, current) => {
+      [...currentEntry].map(letter => combinations.push(`${current}${letter}`));
+    }, '');
+    return combinations;
+  });
+};
 
 module.exports = function(app) {
   app.get('/convertor', (req, res) => {
@@ -27,14 +37,9 @@ module.exports = function(app) {
 
       const value = req.query.value;
       const digits = value.split('');
-      const arraysToCombine = [];
 
-      digits.forEach(digit => {
-        arraysToCombine.push(valueConversions[digit]);
-      });
-
-      const conversion = arraysToCombine.reduce(crossProduct).sort();
-      const words = conversion.filter(word => text.includes(word));
+      const possibleWords = letterCombinations(digits);
+      const words = possibleWords.filter(word => text.includes(word));
       const result = words.join(', ') || `No words match value of ${value}`;
 
       res.end(result);
