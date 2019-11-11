@@ -22,9 +22,9 @@ const letterCombinations = digs => {
 
   return letters.reduce((strings, currentEntry) => {
     const combinations = [];
-    strings.reduce((_, current) => {
-      [...currentEntry].map(letter => combinations.push(`${current}${letter}`));
-    }, '');
+    strings.forEach(current => {
+      currentEntry.map(letter => combinations.push(`${current}${letter}`));
+    });
     return combinations;
   });
 };
