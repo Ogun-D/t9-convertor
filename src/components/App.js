@@ -56,10 +56,21 @@ const App = props => {
   );
 };
 
+const mapStateToProps = state => {
+  return {
+    conversion: state.conversion,
+    input: state.input
+  };
+};
+
+const mapDispatchToProps = {
+  convertInput,
+  clearInput,
+  updateInput,
+  resetConversion
+};
+
 export default connect(
-  ({ input, conversion }) => ({
-    conversion,
-    input
-  }),
-  { convertInput, clearInput, updateInput, resetConversion }
+  mapStateToProps,
+  mapDispatchToProps
 )(App);
